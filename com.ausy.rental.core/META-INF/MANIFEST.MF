@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core
+Bundle-SymbolicName: com.ausy.rental.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.ausy.rental.core.RentalCoreActivator
+Bundle-Vendor: AUSY
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: Lib/rental.jar,
+ .
+Export-Package: com.ausy.rental.core,
+ com.opcoach.training.rental
