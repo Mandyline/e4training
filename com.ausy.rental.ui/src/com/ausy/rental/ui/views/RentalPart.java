@@ -10,10 +10,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-
-import com.ausy.rental.core.RentalCoreActivator;
-import com.opcoach.training.rental.Rental;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import com.opcoach.training.rental.Rental;
+import com.opcoach.training.rental.RentalAgency;
 
 public class RentalPart {
 
@@ -23,7 +23,7 @@ public class RentalPart {
 	private Label lblSaisieLoueA;
 
 	@PostConstruct
-	public void createContent(Composite parent) {
+	public void createContent(Composite parent, RentalAgency a) {
 		parent.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		parent.setLayout(new GridLayout(1, false));
 
@@ -62,7 +62,9 @@ public class RentalPart {
 
 		lblSaisieDateAu = new Label(infoGroupDate, SWT.NONE);
 		lblSaisieDateAu.setText("New Label");
-		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		//code quand agency pas en paramètre
+		//setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		setRental(a.getRentals().get(0));
 	}
 
 	@Focus
