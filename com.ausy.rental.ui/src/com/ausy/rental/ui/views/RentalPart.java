@@ -28,7 +28,7 @@ public class RentalPart {
 		parent.setLayout(new GridLayout(1, false));
 
 		Group infoGroup = new Group(parent, SWT.NONE);
-		GridData gd_infoGroup = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		GridData gd_infoGroup = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_infoGroup.widthHint = 257;
 		infoGroup.setLayoutData(gd_infoGroup);
 		infoGroup.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
@@ -45,10 +45,11 @@ public class RentalPart {
 
 		lblSaisieLoueA = new Label(infoGroup, SWT.NONE);
 		lblSaisieLoueA.setText("New Label");
+		new Label(infoGroup, SWT.NONE);
 
 		Group infoGroupDate = new Group(parent, SWT.NONE);
 		infoGroupDate.setLayout(new GridLayout(2, false));
-		infoGroupDate.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		infoGroupDate.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		infoGroupDate.setText("Dates de location");
 
 		Label lblDateDu = new Label(infoGroupDate, SWT.NONE);
