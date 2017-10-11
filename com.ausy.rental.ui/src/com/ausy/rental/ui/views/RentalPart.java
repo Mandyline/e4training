@@ -1,9 +1,12 @@
 
 package com.ausy.rental.ui.views;
 
-import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -22,8 +25,8 @@ public class RentalPart {
 	private Label lblSaisieDateDu;
 	private Label lblSaisieLoueA;
 
-	@PostConstruct
-	public void createContent(Composite parent, RentalAgency a) {
+	@Inject
+	public  RentalPart(Composite parent, RentalAgency a) {
 		parent.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		parent.setLayout(new GridLayout(1, false));
 
@@ -78,5 +81,13 @@ public class RentalPart {
 		lblSaisieDateDu.setText(r.getStartDate().toString());
 		lblSaisieDateAu.setText(r.getEndDate().toString());
 		lblSaisieLoueA.setText(r.getCustomer().getDisplayName());
+	}
+	
+	@Inject @Optional public void listenToSel(@Named(IServiceConstants.ACTIVE_SELECTION) Rental r)
+	{
+		//if(r!=null) on l'enlève car remplace de postcontruct par constructeur
+		//{
+			setRental(r);
+		//}
 	}
 }
