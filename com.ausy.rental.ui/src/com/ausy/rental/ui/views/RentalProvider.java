@@ -7,7 +7,9 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import com.opcoach.training.rental.Customer;
+import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
+import com.opcoach.training.rental.RentalObject;
 
 public class RentalProvider extends LabelProvider implements ITreeContentProvider {
 
@@ -24,12 +26,21 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		Object[] result = null;
+		/*Object[] result = null;
 		// TODO Auto-generated method stub
 		if (parentElement instanceof RentalAgency) {
 			result = ((RentalAgency) parentElement).getCustomers().toArray();
+		}*/
+		if(parentElement instanceof RentalAgency)
+		{
+			RentalAgency a=(RentalAgency) parentElement;
+			return new Node[] {new Node(Node.CUSTOMERS,a), new Node(Node.LOCATIONS,a), new Node(Node.OBJETS_À_LOUER,a)};
 		}
-		return result;
+		else if(parentElement instanceof Node)
+		{
+			return ((Node) parentElement).getChildren();
+		}
+		return null;
 	}
 
 	@Override
@@ -51,8 +62,12 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	public String getText(Object element) {
 		if (element instanceof RentalAgency)
 			return ((RentalAgency) element).getName();
-		if(element instanceof Customer)
+		else if(element instanceof Customer)
 			return ((Customer) element).getDisplayName();
+		else if(element instanceof RentalObject)
+			return ((RentalObject) element).getName();
+		else if(element instanceof Rental)
+			return ((Rental) element).toString();
 		// TODO Auto-generated method stub
 		return super.getText(element);
 	}
@@ -61,5 +76,38 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	public Image getImage(Object element) {
 		// TODO Auto-generated method stub
 		return super.getImage(element);
+	}
+	
+	class Node{
+		
+		public static final String OBJETS_À_LOUER = "Objets à louer";
+		public static final String LOCATIONS = "Locations";
+		public static final String CUSTOMERS = "Customers";
+		private String label;
+		private RentalAgency a;
+		
+		public Node(String label, RentalAgency a) {
+			super();
+			this.label = label;
+			this.a = a;
+		}
+		
+		public Object[] getChildren()
+		{
+			if(label==CUSTOMERS)
+				return a.getCustomers().toArray();
+			else if(label==LOCATIONS)
+				return a.getRentals().toArray();
+			else if(label==OBJETS_À_LOUER)
+				return a.getObjectsToRent().toArray();
+			return null;
+		}
+		
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return label;
+		}
+		
 	}
 }
