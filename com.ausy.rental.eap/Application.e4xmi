@@ -4,6 +4,7 @@
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.part.sample" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.views.RentalPart" label="Rental Part"/>
+        <children xsi:type="basic:Part" xmi:id="_ZRXEAK6IEeeV3ZnEfMpNcw" elementId="com.ausy.rental.eap.part.agencepart" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.views.AgencePart" label="Agence Part"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
