@@ -2,29 +2,31 @@ package com.ausy.rental.ui;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+import com.opcoach.e4.preferences.ScopedPreferenceStore;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.core.helpers.RentalAgencyGenerator;
 
 public class RentalAddon implements RentalUIConstants {
 	@PostConstruct
-	public void init(IEclipseContext ctx)
-	{
+	public void init(IEclipseContext ctx) {
 		ctx.set(RentalAgency.class, RentalAgencyGenerator.createSampleAgency());
 		ctx.set(RENTAL_UI_IMG_REGISTRY, getLocalImageRegistry());
-		//ctx.set(ImageRegistry.class, getLocalImageRegistry()); normalement c'est ça qu'il faut faire
+		// ctx.set(ImageRegistry.class, getLocalImageRegistry()); normalement c'est ça
+		// qu'il faut faire
+		ctx.set(RENTAL_UI_PREF_STORE, new ScopedPreferenceStore(InstanceScope.INSTANCE, PLUGIN_ID));
 	}
-	
-	ImageRegistry getLocalImageRegistry()
-	{
+
+	ImageRegistry getLocalImageRegistry() {
 		// Get the bundle using the universal method to get it from the current class
-		Bundle b = FrameworkUtil.getBundle(getClass());  
-		
+		Bundle b = FrameworkUtil.getBundle(getClass());
+
 		// Create a local image registry
 		ImageRegistry reg = new ImageRegistry();
 
@@ -37,5 +39,5 @@ public class RentalAddon implements RentalUIConstants {
 		reg.put(IMG_EXPAND_ALL, ImageDescriptor.createFromURL(b.getEntry(IMG_EXPAND_ALL)));
 
 		return reg;
-}
+	}
 }

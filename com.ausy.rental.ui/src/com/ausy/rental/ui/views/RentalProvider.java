@@ -5,7 +5,11 @@ import java.util.Collection;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -23,6 +27,8 @@ import com.opcoach.training.rental.RentalObject;
 
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalUIConstants {
 
+	@Inject @Named(RENTAL_UI_PREF_STORE)
+	private IPreferenceStore pStore;
 	public RentalProvider() {
 		// TODO Auto-generated constructor stub
 	}
@@ -140,11 +146,11 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		if (element instanceof RentalAgency)
 			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
 		else if(element instanceof Customer)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+			return getAColor(pStore.getString(PREF_CUSTOMER_COLOR));
 		else if(element instanceof RentalObject)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
+			return getAColor(pStore.getString(PREF_RENTAL_OBJECT_COLOR));
 		else if(element instanceof Rental)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_MAGENTA);
+			return getAColor(pStore.getString(PREF_RENTAL_COLOR));
 		
 			
 		return null;
@@ -154,5 +160,27 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	public Color getBackground(Object element) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	/**
+	 * A private methode to get a color in from a rgb key
+	 * @param rgbKey the rgb value as String. For instance : "10,20,30"
+	 * @return
+	 */
+	private Color getAColor(String rgbKey)
+	{
+		//je créé une couleur à partir d'une clef
+		
+		//Use the global color reguistry (from jface)
+		ColorRegistry colorRegistry=JFaceResources.getColorRegistry();
+		
+		//test if a color exists for this key
+		Color col=colorRegistry.get(rgbKey);
+		if(col==null)
+		{
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			col=colorRegistry.get(rgbKey);
+		}
+		return col;
 	}
 }
