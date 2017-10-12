@@ -11,7 +11,7 @@
           <menus xsi:type="menu:PopupMenu" xmi:id="_ciD7UK8uEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.popupmenu.0">
             <children xsi:type="menu:HandledMenuItem" xmi:id="_fg98cK8uEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handledmenuitem.1" command="_ncw1sK8rEeeQI-T9m8qEGg"/>
             <children xsi:type="menu:HandledMenuItem" xmi:id="_m6JHcK9EEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handledmenuitem.2" tooltip="" command="_EnD4wK9EEeeQI-T9m8qEGg">
-              <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_-vGxcK9EEeeQI-T9m8qEGg" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerVisible"/>
+              <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_-vGxcK9EEeeQI-T9m8qEGg" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerHandler"/>
             </children>
           </menus>
           <toolbar xmi:id="_kyhDsK8wEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.toolbar.0">
@@ -48,7 +48,7 @@
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.handler.saveCommand" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.handler.aboutCommand" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_vowmwK8rEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handler.0" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.HelloWordHandler" command="_ncw1sK8rEeeQI-T9m8qEGg"/>
-  <handlers xmi:id="_VX708K9EEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handler.1" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerVisibleHandler" command="_EnD4wK9EEeeQI-T9m8qEGg"/>
+  <handlers xmi:id="_VX708K9EEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handler.1" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerHandler" command="_EnD4wK9EEeeQI-T9m8qEGg"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
