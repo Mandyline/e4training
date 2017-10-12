@@ -214,7 +214,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		
 		//test if a color exists for this key
 		Color col=colorRegistry.get(rgbKey);
-		if(col==null)
+		if(col==null&&!rgbKey.isEmpty())
 		{
 			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
 			col=colorRegistry.get(rgbKey);

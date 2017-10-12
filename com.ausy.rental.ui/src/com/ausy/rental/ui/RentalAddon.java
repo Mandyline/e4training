@@ -1,15 +1,19 @@
 package com.ausy.rental.ui;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 import com.opcoach.e4.preferences.ScopedPreferenceStore;
+import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.core.helpers.RentalAgencyGenerator;
 
@@ -39,5 +43,11 @@ public class RentalAddon implements RentalUIConstants {
 		reg.put(IMG_EXPAND_ALL, ImageDescriptor.createFromURL(b.getEntry(IMG_EXPAND_ALL)));
 
 		return reg;
+	}
+	@Inject
+	@Optional
+	public void onCopyCustomer(@UIEventTopic("rental/copyCustomer") Customer c)
+	{
+		System.out.println("Copie du client " + c.getDisplayName());
 	}
 }
