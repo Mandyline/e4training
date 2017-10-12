@@ -26,7 +26,7 @@ public class RentalPart {
 	private Label lblSaisieLoueA;
 
 	@Inject
-	public  RentalPart(Composite parent, RentalAgency a) {
+	public RentalPart(Composite parent, RentalAgency a) {
 		parent.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		parent.setLayout(new GridLayout(1, false));
 
@@ -66,8 +66,8 @@ public class RentalPart {
 
 		lblSaisieDateAu = new Label(infoGroupDate, SWT.NONE);
 		lblSaisieDateAu.setText("New Label");
-		//code quand agency pas en paramètre
-		//setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		// code quand agency pas en paramètre
+		// setRental(RentalCoreActivator.getAgency().getRentals().get(0));
 		setRental(a.getRentals().get(0));
 	}
 
@@ -77,17 +77,20 @@ public class RentalPart {
 	}
 
 	public void setRental(Rental r) {
-		rentedObjectLabel.setText(r.getRentedObject().getName());
-		lblSaisieDateDu.setText(r.getStartDate().toString());
-		lblSaisieDateAu.setText(r.getEndDate().toString());
-		lblSaisieLoueA.setText(r.getCustomer().getDisplayName());
+		if (r != null) {
+			rentedObjectLabel.setText(r.getRentedObject().getName());
+			lblSaisieDateDu.setText(r.getStartDate().toString());
+			lblSaisieDateAu.setText(r.getEndDate().toString());
+			lblSaisieLoueA.setText(r.getCustomer().getDisplayName());
+		}
 	}
-	
-	@Inject @Optional public void listenToSel(@Named(IServiceConstants.ACTIVE_SELECTION) Rental r)
-	{
-		//if(r!=null) on l'enlève car remplace de postcontruct par constructeur
-		//{
-			setRental(r);
-		//}
+
+	@Inject
+	@Optional
+	public void listenToSel(@Named(IServiceConstants.ACTIVE_SELECTION) Rental r) {
+		// if(r!=null) on l'enlève car remplace de postcontruct par constructeur
+		// {
+		setRental(r);
+		// }
 	}
 }

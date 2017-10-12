@@ -56,7 +56,7 @@ public class AgencePart implements RentalUIConstants {
 	public void rafraichir(@Preference(value = PREF_CUSTOMER_COLOR) String cColor,
 			@Preference(value = PREF_RENTAL_OBJECT_COLOR) String roColor,
 			@Preference(value = PREF_RENTAL_COLOR) String rColor) {
-		if(tv!=null)
+		if(tv!=null &&(!tv.getControl().isDisposed()))
 		{
 			tv.refresh();
 		}
