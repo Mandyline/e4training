@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.window.main" label="Eclipse 4 RCP Application" width="900" height="900">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.partsashcontainer.sample" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_1jLE0K8tEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.partstack.0" containerData="60">
@@ -10,6 +10,9 @@
           </menus>
           <menus xsi:type="menu:PopupMenu" xmi:id="_ciD7UK8uEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.popupmenu.0">
             <children xsi:type="menu:HandledMenuItem" xmi:id="_fg98cK8uEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handledmenuitem.1" command="_ncw1sK8rEeeQI-T9m8qEGg"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_m6JHcK9EEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handledmenuitem.2" tooltip="" command="_EnD4wK9EEeeQI-T9m8qEGg">
+              <visibleWhen xsi:type="ui:ImperativeExpression" xmi:id="_-vGxcK9EEeeQI-T9m8qEGg" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerVisible"/>
+            </children>
           </menus>
           <toolbar xmi:id="_kyhDsK8wEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.toolbar.0">
             <children xsi:type="menu:DirectToolItem" xmi:id="_mXoAUK8wEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.directtoolitem.0" iconURI="platform:/plugin/com.ausy.rental.eap/icons/sample.png" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.HelloWordHandler"/>
@@ -45,6 +48,7 @@
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.handler.saveCommand" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.handler.aboutCommand" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_vowmwK8rEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handler.0" contributionURI="bundleclass://com.ausy.rental.eap/com.ausy.rental.eap.handlers.HelloWordHandler" command="_ncw1sK8rEeeQI-T9m8qEGg"/>
+  <handlers xmi:id="_VX708K9EEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.handler.1" contributionURI="bundleclass://com.ausy.rental.ui/com.ausy.rental.ui.handlers.CopyCustomerVisibleHandler" command="_EnD4wK9EEeeQI-T9m8qEGg"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.ausy.rental.eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -63,6 +67,7 @@
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
   <commands xmi:id="_ncw1sK8rEeeQI-T9m8qEGg" elementId="com.ausy.rental.eap.command.commandehelloword" commandName="CommandeHelloWord" description="Affiche Hello Word"/>
+  <commands xmi:id="_EnD4wK9EEeeQI-T9m8qEGg" elementId="org.eclipse.ui.edit.copy" commandName="CopyCustomer" description="Copier"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
