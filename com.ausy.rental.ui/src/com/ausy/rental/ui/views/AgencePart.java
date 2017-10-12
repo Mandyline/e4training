@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -21,7 +22,7 @@ public class AgencePart {
 
 
 	@PostConstruct
-	public void createContent(Composite parent, RentalAgency a, IEclipseContext ctx, ESelectionService esel) {
+	public void createContent(Composite parent, RentalAgency a, IEclipseContext ctx, ESelectionService esel, EMenuService men) {
 		TreeViewer tv= new TreeViewer(parent);
 		//RentalProvider p=new RentalProvider();
 		//(MApplication a a.getContext())
@@ -40,6 +41,8 @@ public class AgencePart {
 				esel.setSelection(sel.size()==1 ? sel.getFirstElement():sel.toArray());
 			}
 		});
+		
+		men.registerContextMenu(tv.getControl(), "com.ausy.rental.eap.popupmenu.0");
 		tv.expandAll();
 	}
 
