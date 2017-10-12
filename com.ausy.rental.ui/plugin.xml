@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.opcoach.e4.preferences.e4PreferencePages">
+      <page
+            class="com.ausy.rental.ui.prefs.ColorPrefPage"
+            id="com.ausy.rental.ui.ColorPrefPage"
+            name="Color Preference Page">
+      </page>
+   </extension>
+
+</plugin>
